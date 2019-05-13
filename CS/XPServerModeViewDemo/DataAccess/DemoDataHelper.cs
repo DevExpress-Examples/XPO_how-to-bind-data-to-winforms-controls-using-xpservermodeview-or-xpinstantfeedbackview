@@ -58,7 +58,7 @@ namespace XpoTutorial {
                 }
             }
             const int batchSize = 100;
-            const int recordsCount = 10000;
+            const int recordsCount = 100000;
             for(int i = 0; i < recordsCount; i += batchSize) {
                 for(int j = 0; j < batchSize; j++) {
                     Order order = new Order(uow);

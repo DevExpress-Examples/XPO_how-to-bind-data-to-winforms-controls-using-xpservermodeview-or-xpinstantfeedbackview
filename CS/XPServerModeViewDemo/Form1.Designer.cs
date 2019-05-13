@@ -41,7 +41,7 @@
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPercentFromSalesByMonth = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.xpInstantFeedbackView1 = new DevExpress.Xpo.XPInstantFeedbackView(this.components);
@@ -107,9 +107,7 @@
             new DevExpress.Xpo.ServerViewProperty("Price", DevExpress.Xpo.SortDirection.None, "[Price]"),
             new DevExpress.Xpo.ServerViewProperty("Quantity", DevExpress.Xpo.SortDirection.None, "[Quantity]"),
             new DevExpress.Xpo.ServerViewProperty("TotalPrice", DevExpress.Xpo.SortDirection.None, "[Quantity] * [Price]"),
-            new DevExpress.Xpo.ServerViewProperty("PercentFromSalesByMonth", DevExpress.Xpo.SortDirection.None, "[Quantity] * [Price] / [<Order>][GetYear([OrderDate]) = GetYear([^.OrderDate]) An" +
-                    "d GetMonth([OrderDate]) = GetMonth([^.OrderDate])].Sum([Quantity] * [Price]) * 1" +
-                    "00")});
+            new DevExpress.Xpo.ServerViewProperty("Tax", DevExpress.Xpo.SortDirection.None, "[Quantity] * [Price] * 0.13")});
             // 
             // gridView1
             // 
@@ -121,7 +119,7 @@
             this.colPrice,
             this.colQuantity,
             this.colTotalPrice,
-            this.colPercentFromSalesByMonth});
+            this.colTax});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", null, "(Total Price: SUM={0:0.##})"),
@@ -180,15 +178,15 @@
             this.colTotalPrice.Visible = true;
             this.colTotalPrice.VisibleIndex = 6;
             // 
-            // colPercentFromSalesByMonth
+            // colTax
             // 
-            this.colPercentFromSalesByMonth.Caption = "% from Sales by Month";
-            this.colPercentFromSalesByMonth.DisplayFormat.FormatString = "F3";
-            this.colPercentFromSalesByMonth.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colPercentFromSalesByMonth.FieldName = "PercentFromSalesByMonth";
-            this.colPercentFromSalesByMonth.Name = "colPercentFromSalesByMonth";
-            this.colPercentFromSalesByMonth.Visible = true;
-            this.colPercentFromSalesByMonth.VisibleIndex = 7;
+            this.colTax.Caption = "Tax";
+            this.colTax.DisplayFormat.FormatString = "F3";
+            this.colTax.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTax.FieldName = "Tax";
+            this.colTax.Name = "colTax";
+            this.colTax.Visible = true;
+            this.colTax.VisibleIndex = 7;
             // 
             // xtraTabPage2
             // 
@@ -220,9 +218,7 @@
             new DevExpress.Xpo.ServerViewProperty("Price", DevExpress.Xpo.SortDirection.None, "[Price]"),
             new DevExpress.Xpo.ServerViewProperty("Quantity", DevExpress.Xpo.SortDirection.None, "[Quantity]"),
             new DevExpress.Xpo.ServerViewProperty("TotalPrice", DevExpress.Xpo.SortDirection.None, "[Quantity] * [Price]"),
-            new DevExpress.Xpo.ServerViewProperty("PercentFromSalesByMonth", DevExpress.Xpo.SortDirection.None, "[Quantity] * [Price] / [<Order>][GetYear([OrderDate]) = GetYear([^.OrderDate]) An" +
-                    "d GetMonth([OrderDate]) = GetMonth([^.OrderDate])].Sum([Quantity] * [Price]) * 1" +
-                    "00")});
+            new DevExpress.Xpo.ServerViewProperty("Tax", DevExpress.Xpo.SortDirection.None, "[Quantity] * [Price] * 0.13")});
             // 
             // gridView2
             // 
@@ -295,10 +291,10 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "% from Sales by Month";
+            this.gridColumn8.Caption = "Tax";
             this.gridColumn8.DisplayFormat.FormatString = "F3";
             this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn8.FieldName = "PercentFromSalesByMonth";
+            this.gridColumn8.FieldName = "Tax";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 7;
@@ -341,7 +337,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
         private DevExpress.XtraGrid.Columns.GridColumn colQuantity;
         private DevExpress.XtraGrid.Columns.GridColumn colTotalPrice;
-        private DevExpress.XtraGrid.Columns.GridColumn colPercentFromSalesByMonth;
+        private DevExpress.XtraGrid.Columns.GridColumn colTax;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;

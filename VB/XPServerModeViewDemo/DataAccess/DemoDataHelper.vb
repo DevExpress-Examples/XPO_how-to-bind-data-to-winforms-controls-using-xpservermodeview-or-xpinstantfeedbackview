@@ -26,7 +26,7 @@ Namespace XpoTutorial
 				Next j
 			Next i
 			Const batchSize As Integer = 100
-            Const recordsCount As Integer = 10000
+            Const recordsCount As Integer = 100000
             For i As Integer = 0 To recordsCount - 1 Step batchSize
 				For j As Integer = 0 To batchSize - 1
 					Dim order As New Order(uow)
