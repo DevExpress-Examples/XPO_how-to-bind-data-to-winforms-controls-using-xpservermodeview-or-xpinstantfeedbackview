@@ -36,7 +36,7 @@ xpInstantFeedbackView1.ResolveSession += (s, e) => {
     e.Session = session;
 };
 ```
-3. For `XPInstantFeedbackView`, additionally handle the `DismissSession` event to manually dispose of the Session created in the `ResolveSession` event handler.
+3. For `XPInstantFeedbackView`, optionally handle the `DismissSession` event to manually dispose of the Session created in the `ResolveSession` event handler.
 ``` csharp
 xpInstantFeedbackView1.DismissSession += (s, e) => {
     IDisposable session = e.Session as IDisposable;
