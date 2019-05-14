@@ -12,9 +12,11 @@ They offer the following:
 Before using these components as a grid's data source, configure them as follows:
 1. Set `ObjectType` and `Properties` in code or in the component designer. `ServerViewProperty` supports [persistent or aliased properties](https://www.devexpress.com/Support/Center/Question/Details/Q352044/is-it-possible-to-avoid-the-cannot-query-a-data-store-using-criterion-error-and-be-able) in expressions.
 ``` csharp
+xpServerModeView1.ObjectType = typeof(Order);
 xpInstantFeedbackView1.ObjectType = typeof(Order);
-xpInstantFeedbackView1.Properties.AddRange(new ServerViewProperty[] {
-    new DevExpress.Xpo.ServerViewProperty("Oid", SortDirection.Ascending, "[Oid]"),
+
+var viewProperties = new ServerViewProperty[] {
+    new ServerViewProperty("Oid", SortDirection.Ascending, "[Oid]"),
     new ServerViewProperty("OrderDate", SortDirection.None, "[OrderDate]"),
     new ServerViewProperty("Customer", SortDirection.None, "[Customer.ContactName]"),
     new ServerViewProperty("ProductName", SortDirection.None, "[ProductName]"),
@@ -22,9 +24,12 @@ xpInstantFeedbackView1.Properties.AddRange(new ServerViewProperty[] {
     new ServerViewProperty("Quantity", SortDirection.None, "[Quantity]"),
     new ServerViewProperty("TotalPrice", SortDirection.None, "[Quantity] * [Price]"),
     new ServerViewProperty("Tax", SortDirection.None, "[Quantity] * [Price] * 0.13")
-});
+};
+xpServerModeView1.Properties.AddRange(viewProperties);
+xpInstantFeedbackView1.Properties.AddRange(viewProperties);
 ```
 2. Handle the `ResolveSession` event to provide a [Session](https://docs.devexpress.com/XPO/2022/feature-center/connecting-to-a-data-store/session), to retrieve objects from the data store.
+
 ``` csharp
 session = new Session(XpoDefault.DataLayer);
 
