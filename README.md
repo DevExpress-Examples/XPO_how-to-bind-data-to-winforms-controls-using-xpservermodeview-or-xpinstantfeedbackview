@@ -6,7 +6,7 @@ They offer the following:
 * Ability to handle large data sources with lower memory usage (will not load entire persistent object instance).
 * Ability to customize SELECT statements and exclude unused data columns.
 * Ability to Include reference property data in the root query to avoid the 1+N problem.
-* Ability to Include custom (virtual) properties calculated on the server side (similar to [ViewProperty](https://docs.devexpress.com/XPO/DevExpress.Xpo.ViewProperty.Property)).
+* Ability to Include custom (virtual) properties calculated on the server side with [ServerViewProperty](https://docs.devexpress.com/XPO/DevExpress.Xpo.ServerViewProperty).
 
 ## How it works
 Before using these components as a grid's data source, configure them as follows:
