@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\XPServerModeViewDemo\DataAccess\ConnectionHelper.cs" Link="DataAccess\ConnectionHelper.cs" />
+    <Compile Include="..\XPServerModeViewDemo\DataAccess\Customer.cs" Link="DataAccess\Customer.cs" />
+    <Compile Include="..\XPServerModeViewDemo\DataAccess\DemoDataHelper.cs" Link="DataAccess\DemoDataHelper.cs" />
+    <Compile Include="..\XPServerModeViewDemo\DataAccess\Order.cs" Link="DataAccess\Order.cs" />
+    <Compile Include="..\XPServerModeViewDemo\Form1.cs" Link="Form1.cs" />
+    <Compile Include="..\XPServerModeViewDemo\Form1.Designer.cs" Link="Form1.Designer.cs" />
+    <Compile Include="..\XPServerModeViewDemo\Program.cs" Link="Program.cs" />
+    <Compile Include="..\XPServerModeViewDemo\ProgressForm.cs" Link="ProgressForm.cs" />
+    <Compile Include="..\XPServerModeViewDemo\ProgressForm.Designer.cs" Link="ProgressForm.Designer.cs" />
+    <Compile Include="..\XPServerModeViewDemo\Properties\Resources.Designer.cs" Link="Resources.Designer.cs" />
+    <Compile Include="..\XPServerModeViewDemo\Properties\Settings.Designer.cs" Link="Settings.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\XPServerModeViewDemo\Form1.resx" Link="Form1.resx" />
+    <EmbeddedResource Include="..\XPServerModeViewDemo\ProgressForm.resx" Link="ProgressForm.resx" />
+    <EmbeddedResource Include="..\XPServerModeViewDemo\Properties\Resources.resx" Link="Resources.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\XPServerModeViewDemo\App.config" Link="App.config" />
+    <None Include="..\XPServerModeViewDemo\Properties\Settings.settings" Link="Settings.settings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Win" Version="20.1.3-ctp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataAccess\" />
+  </ItemGroup>
+
+</Project>
