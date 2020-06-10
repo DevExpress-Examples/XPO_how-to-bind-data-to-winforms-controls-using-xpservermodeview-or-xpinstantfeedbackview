@@ -1,5 +1,6 @@
 # How to Bind Data to WinForms Data Grid Using XPO and XPServerModeView or XPInstantFeedbackView
 
+
 These new read-only server mode components are mixtures of [XPServerCollectionSource](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPServerCollectionSource)/[XPInstantFeedbackSource](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackSource) and [XPView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPView) for use with DevExpress Grid controls. 
 
 They offer the following:
@@ -8,10 +9,12 @@ They offer the following:
 * Ability to Include reference property data in the root query to avoid the 1+N problem.
 * Ability to Include custom (virtual) properties calculated on the server side with [ServerViewProperty](https://docs.devexpress.com/XPO/DevExpress.Xpo.ServerViewProperty).
 
+For more information, see [XPServerModeView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPServerModeView) and [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView).
+
 ## How it works
 Before using these components as a grid's data source, configure them as follows:
 1. Set `ObjectType` and `Properties` in code or in the component designer. `ServerViewProperty` supports [persistent or aliased properties](https://www.devexpress.com/Support/Center/Question/Details/Q352044/is-it-possible-to-avoid-the-cannot-query-a-data-store-using-criterion-error-and-be-able) in expressions.
-``` csharp
+```cs
 xpServerModeView1.ObjectType = typeof(Order);
 xpInstantFeedbackView1.ObjectType = typeof(Order);
 
@@ -30,7 +33,7 @@ xpInstantFeedbackView1.Properties.AddRange(viewProperties);
 ```
 2. Handle the `ResolveSession` event to provide a [Session](https://docs.devexpress.com/XPO/2022/feature-center/connecting-to-a-data-store/session), to retrieve objects from the data store.
 
-``` csharp
+```cs
 session = new Session(XpoDefault.DataLayer);
 
 xpServerModeView1.ResolveSession += (s, e) => {
@@ -42,7 +45,7 @@ xpInstantFeedbackView1.ResolveSession += (s, e) => {
 };
 ```
 3. For `XPInstantFeedbackView`, optionally handle the `DismissSession` event to manually dispose of the Session created in the `ResolveSession` event handler.
-``` csharp
+```cs
 xpInstantFeedbackView1.DismissSession += (s, e) => {
     IDisposable session = e.Session as IDisposable;
     if (session != null) {
@@ -51,6 +54,4 @@ xpInstantFeedbackView1.DismissSession += (s, e) => {
 };
 ```
 ## Your feedback matters!
-These components are in **preview** in v19.1 and we hope to polish and release them with your help in v19.2. 
-We will provide API reference and more documentation for these components by the release time.
 Please let us know if you experience any issues, unsupported scenarios or just have usage questions.
