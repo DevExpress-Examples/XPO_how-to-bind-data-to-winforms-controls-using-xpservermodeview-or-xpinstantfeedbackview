@@ -27,7 +27,7 @@
     <None Include="..\XPServerModeViewDemo\Properties\Settings.settings" Link="Settings.settings" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.WindowsDesktop.Win" Version="20.1.11-ctp" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win" Version="20.1.12-ctp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\" />
