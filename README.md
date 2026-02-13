@@ -62,7 +62,7 @@ xpInstantFeedbackView1.DismissSession += (s, e) => {
 ## Your feedback matters!
 Please let us know if you experience any issues, unsupported scenarios or just have usage questions.
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=XPO_how-to-bind-data-to-winforms-controls-using-xpservermodeview-or-xpinstantfeedbackview&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=XPO_how-to-bind-data-to-winforms-controls-using-xpservermodeview-or-xpinstantfeedbackview&~~~was_helpful=no)
 
